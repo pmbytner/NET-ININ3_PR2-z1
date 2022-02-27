@@ -6,6 +6,26 @@
     StartupUri="MainWindow.xaml"
     >
     <Application.Resources>
-         
+        <Style TargetType="Border">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Justify"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style
+            TargetType="TextBlock"
+            BasedOn="{StaticResource {x:Type TextBlock}}"
+            x:Key="KolorowyTextBlock"
+            >
+            <Setter Property="Foreground" Value="#30A"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#A03"/>
+        </Style>
     </Application.Resources>
 </Application>

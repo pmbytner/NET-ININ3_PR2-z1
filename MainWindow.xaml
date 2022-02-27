@@ -24,168 +24,51 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
+        <Grid.Resources>
+            <Style
+                TargetType="Border"
+                BasedOn="{StaticResource {x:Type Border}}"
+                >
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Background" Value="Gray"/>
+            </Style>
+        </Grid.Resources>
+        
         <WrapPanel
             Grid.ColumnSpan="3"
-            Orientation="Vertical"
-            Background="#FFDEC1C1"
+            Grid.RowSpan="2"
+            Background="#FFF1E3E3"
             >
+            <WrapPanel.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="MinWidth" Value="10"/>
+                    <Setter Property="MinHeight" Value="50"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                    <Setter Property="BorderBrush" Value="Blue"/>
+                </Style>
+            </WrapPanel.Resources>
             <Border
-                MinHeight="50"
                 MinWidth="50"
-                Margin="5"
-                BorderThickness="5"
-                BorderBrush="#F00"
-                Background="#F99"
-                />
-            <Border
-                MinHeight="50"
-                MinWidth="50"
-                Margin="5"
-                BorderThickness="5"
-                BorderBrush="#FF0"
-                Background="#FF9"
-                />
-            <Border
-                MinHeight="50"
-                MinWidth="150"
-                Margin="5"
-                BorderThickness="5"
-                BorderBrush="#0F0"
-                Background="#9F9"
-                />
-            <Border
-                MinHeight="50"
-                Width="50"
-                Margin="5"
-                BorderThickness="5"
-                BorderBrush="#0FF"
-                Background="#9FF"
-                />
-            <Border
-                MinHeight="50"
-                MinWidth="50"
-                Margin="5"
-                BorderThickness="5"
-                BorderBrush="#00F"
-                Background="#99F"
-                />
-            <Border
-                MinHeight="50"
-                MinWidth="50"
-                Margin="5"
-                BorderThickness="5"
-                BorderBrush="#F0F"
-                Background="#F9F"
-                />
+                ></Border>
+            <Border></Border>
+            <Border></Border>
+            <Border></Border>
+            <Label BorderThickness="2" FontSize="20" FontWeight="Bold">Etykieta</Label>
         </WrapPanel>
-        
-        <ScrollViewer
-            Margin="10"
-            Grid.ColumnSpan="3"
-            Grid.Row="1"
-            Grid.RowSpan="4"
-            HorizontalScrollBarVisibility="Auto"
-            VerticalScrollBarVisibility="Auto"
+        <Border Grid.Row="2"></Border>
+        <TextBlock
+            Grid.Row="3"
+            Grid.RowSpan="2"
             >
-            <StackPanel
-                Background="#FFECDFDF"
-                Orientation="Horizontal"
-                FlowDirection="RightToLeft"
-                >
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Blue"
-                    Background="Yellow"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Black"
-                    Background="Red"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Blue"
-                    Background="Yellow"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Black"
-                    Background="Red"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Blue"
-                    Background="Yellow"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Black"
-                    Background="Red"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Blue"
-                    Background="Yellow"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Black"
-                    Background="Red"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Blue"
-                    Background="Yellow"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Black"
-                    Background="Red"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Blue"
-                    Background="Yellow"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Black"
-                    Background="Red"
-                    />
-                <Border
-                    MinHeight="50"
-                    MinWidth="50"
-                    BorderThickness="5"
-                    BorderBrush="Red"
-                    Background="Green"
-                    />
-            </StackPanel>
-        </ScrollViewer>
-
+            Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst 
+        </TextBlock>
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="3"
+            Grid.RowSpan="2"
+            Style="{StaticResource KolorowyTextBlock}"
+            >
+            Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst Jakiś tekst 
+        </TextBlock>
     </Grid>
 </Window>
