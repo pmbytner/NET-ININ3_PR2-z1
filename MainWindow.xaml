@@ -49,10 +49,14 @@
                 </Style>
             </WrapPanel.Resources>
             <Border
-                MinWidth="50" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}"
+                MinWidth="50"
+                Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}"
                 />
             <Border></Border>
-            <Border></Border>
+            <Border
+                MinWidth="50"
+                Background="{DynamicResource NaszGradient}"
+                ></Border>
             <Border></Border>
             <Label BorderThickness="2" FontSize="20" FontWeight="Bold">Etykieta</Label>
         </WrapPanel>

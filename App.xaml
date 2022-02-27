@@ -6,6 +6,7 @@
     StartupUri="MainWindow.xaml"
     >
     <Application.Resources>
+        
         <SolidColorBrush x:Key="NaszKolor" Color="#FAE"/>
         <Style TargetType="Border">
             <Setter Property="Margin" Value="5"/>
@@ -195,5 +196,10 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+        <RadialGradientBrush x:Key="NaszGradient">
+            <GradientStop Color="#FFFF0B0B"/>
+            <GradientStop Color="#FFFB00F0" Offset="0.6"/>
+            <GradientStop Color="#FF4C0A83" Offset="1"/>
+        </RadialGradientBrush>
     </Application.Resources>
 </Application>
