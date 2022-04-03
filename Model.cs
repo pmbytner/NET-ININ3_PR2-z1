@@ -12,22 +12,73 @@ namespace NET_ININ3_PR2_z1
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        string imię;
-        public string Imię {
-            get { return imię; }
+        bool
+            flagaUłamka = false
+            ;
+        string buforIO = "0";
+        public string IO
+        {
+            get { return buforIO; }
             set
             {
-                imię = value;
-                PropertyChanged?.Invoke(
-                    this,
-                    new PropertyChangedEventArgs("Imię")
-                    );
+                buforIO = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IO"));
             }
         }
-
-        internal void Klik()
+        
+        internal void Resetuj()
         {
-            Imię = "Nemo";
+            Zeruj();
+        }
+        internal void Zeruj() {
+            flagaUłamka = false;
+            IO = "0";
+        }
+        internal void Cofnij()
+        {
+            if (buforIO == "0")
+                return;
+            else if (
+                buforIO == "0,"
+                ||
+                buforIO == "-0,"
+                ||
+                (buforIO[0] == '-' && buforIO.Length == 2)
+                )
+                Zeruj();
+            else
+            {
+                char usuwanyZnak = buforIO[buforIO.Length-1];
+                IO = buforIO.Substring(0, buforIO.Length - 1);
+                if(usuwanyZnak == ',')
+                    flagaUłamka = false;
+            }
+        }
+        internal void DopiszCyfrę(string cyfra)
+        {
+            if (buforIO == "0")
+                buforIO = "";
+            IO += cyfra;
+        }
+        internal void ZmieńZnak()
+        {
+            if (buforIO == "0")
+                return;
+            else if (buforIO[0] == '-')
+                IO = buforIO.Substring(1);
+            else
+                IO = '-' + IO;
+        }
+        internal void PostawPrzecinek()
+        {
+            if (flagaUłamka || buforIO[buforIO.Length - 1] == ',')
+                return;
+            else
+            {
+                IO += ',';
+                flagaUłamka = true;
+            }
+
         }
     }
 }
