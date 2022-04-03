@@ -22,7 +22,9 @@ namespace NET_ININ3_PR2_z1
             foreach (string nazwaPowiązana in powiązaneWłaściwości[własnaNazwa])
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nazwaPowiązana));
         }
+        public static uint następneID = 0;
 
+        public uint ID { get; } = następneID++;
         string
             imię,
             nazwisko
@@ -57,17 +59,22 @@ namespace NET_ININ3_PR2_z1
         };
         public void OnPropertyChanged([CallerMemberName] string własnaNazwa = null)
         {
-            PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(własnaNazwa));
-            foreach(string nazwaPowiązana in powiązaneWłaściwości[własnaNazwa])
-                PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nazwaPowiązana));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(własnaNazwa));
+            foreach (string nazwaPowiązana in powiązaneWłaściwości[własnaNazwa])
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nazwaPowiązana));
         }
 
-        public Osoba Osoba { get; set; } = new Osoba();
         public string[] Tab { get; set; } = new string[]
         {
             "a",
             "b",
             "c"
         };
+        public LinkedList<Osoba> ListaOsób { get; set; } = new LinkedList<Osoba>(new Osoba[]{
+            new Osoba(){Imię="Jan", Nazwisko="Sosnowski"},
+            new Osoba(){Imię="Adam",Nazwisko="Dąbrowski"},
+            new Osoba(){Imię="Anna",Nazwisko="Wiśniewska"},
+            new Osoba(){Imię="Julia",Nazwisko="Jabłońska"}
+        });
     }
 }
