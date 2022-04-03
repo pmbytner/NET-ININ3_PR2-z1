@@ -28,35 +28,22 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         
-        <Label Grid.ColumnSpan="2">Jednowymiarowe dane:</Label>
-        <ListBox
+        <Label>Imię:</Label>
+        <TextBox
+            Grid.Column="1"
+            Text="{Binding Imię}"
+            />
+        <Button Grid.Row="1">OK</Button>
+        <TextBlock
+            Style="{StaticResource Output}"
             Grid.Row="1"
-            Grid.RowSpan="3"
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding Tab}"
+            Grid.Column="1"
+            Text="{Binding Imię}"
             />
 
-        <Label
-            Grid.Row="4"
-            Grid.ColumnSpan="2"
-            >Dwuwymiarowe dane:</Label>
-        <DataGrid
-            Grid.Row="5"
-            Grid.RowSpan="3"
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding ListaOsób}"
-            AutoGenerateColumns="False"
-            >
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="ID"
-                    Binding="{Binding ID}"
-                    />
-                <DataGridTextColumn
-                    Header="Imię Nazwisko"
-                    Binding="{Binding ImięNazwisko}"
-                    />
-            </DataGrid.Columns>
-        </DataGrid>
+        <Button
+            Grid.Row="2"
+            Click="Klik"
+            >Ustaw "Nemo"</Button>
     </Grid>
 </Window>

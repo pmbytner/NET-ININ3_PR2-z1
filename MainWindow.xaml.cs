@@ -26,5 +26,10 @@ namespace NET_ININ3_PR2_z1
             InitializeComponent();
             DataContext = model;
         }
+
+        private void Klik(object sender, RoutedEventArgs e)
+        {
+            model.Klik();
+        }
     }
 }
