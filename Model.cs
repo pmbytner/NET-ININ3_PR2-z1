@@ -11,13 +11,15 @@ namespace NET_ININ3_PR2_z1
     class Model : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        readonly static Dictionary<string,string[]> powiązaneWłaściwości = new Dictionary<string, string[]>()
+        readonly static Dictionary<string, string[]> powiązaneWłaściwości = new Dictionary<string, string[]>()
         {
-
-        }
-        public void OnPropertyChanged([CallerMemberName] string nazwa = null)
+            ["Imię"] = new string[] { "Format" }
+        };
+        public void OnPropertyChanged([CallerMemberName] string własnaNazwa = null)
         {
-            PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nazwa));
+            PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(własnaNazwa));
+            foreach(string nazwaPowiązana in powiązaneWłaściwości[własnaNazwa])
+                PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nazwaPowiązana));
         }
 
         string imię = "Nemo";
