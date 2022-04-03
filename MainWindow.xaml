@@ -32,68 +32,57 @@
         <TextBox
             Grid.Column="1"
             Text="{Binding
-                Imię,
+                Osoba.Imię,
                 UpdateSourceTrigger=PropertyChanged
             }"
             />
-        <Button
-            Grid.Row="1"
-            >OK</Button>
         <TextBlock
             Style="{StaticResource Output}"
             Grid.Row="1"
             Grid.Column="1"
-            Text="{Binding Imię}"
+            Text="{Binding Path=Osoba.Imię}"
             />
+        
         <Label
             Grid.Row="2"
-            >TwoWay</Label>
+            >Nazwisko:</Label>
         <TextBox
             Grid.Column="1"
             Grid.Row="2"
             Text="{Binding
-                Imię,
-                Mode=TwoWay
+                Osoba.Nazwisko,
+                UpdateSourceTrigger=PropertyChanged
             }"
             />
-        <Label
+        <TextBlock
+            Style="{StaticResource Output}"
             Grid.Row="3"
-            >OneWay</Label>
-        <TextBox
             Grid.Column="1"
-            Grid.Row="3"
-            Text="{Binding
-                Imię,
-                Mode=OneWay
-            }"
+            Text="{Binding Osoba.Nazwisko}"
             />
-        <Label
+        <TextBlock
+            Style="{StaticResource Output}"
             Grid.Row="4"
-            >OneTime</Label>
-        <TextBox
-            Grid.Column="1"
-            Grid.Row="4"
-            Text="{Binding
-                Imię,
-                Mode=OneTime
-            }"
+            Grid.ColumnSpan="2"
+            Text="{Binding Osoba.ImięNazwisko}"
             />
+
         <Label
             Grid.Row="5"
-            >OneWayToSrc</Label>
+            >Komórka:</Label>
         <TextBox
             Grid.Column="1"
             Grid.Row="5"
             Text="{Binding
-                Imię,
-                Mode=OneWayToSource
+                Path=Tab[0],
+                UpdateSourceTrigger=PropertyChanged
             }"
             />
         <TextBlock
             Style="{StaticResource Output}"
             Grid.Row="6"
-            Grid.ColumnSpan="2"
-            Text="{Binding Format}"
+            Grid.Column="1"
+            Text="{Binding Path=Tab[0]}"
             />
     </Grid>
 </Window>

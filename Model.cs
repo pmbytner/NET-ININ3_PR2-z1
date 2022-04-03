@@ -8,6 +8,46 @@ using System.Threading.Tasks;
 
 namespace NET_ININ3_PR2_z1
 {
+    class Osoba : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        readonly static Dictionary<string, string[]> powiązaneWłaściwości = new Dictionary<string, string[]>()
+        {
+            ["Imię"] = new string[] { "ImięNazwisko" },
+            ["Nazwisko"] = new string[] {"ImięNazwisko"}
+        };
+        public void OnPropertyChanged([CallerMemberName] string własnaNazwa = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(własnaNazwa));
+            foreach (string nazwaPowiązana in powiązaneWłaściwości[własnaNazwa])
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nazwaPowiązana));
+        }
+
+        string
+            imię,
+            nazwisko
+            ;
+        public string ImięNazwisko
+        {
+            get { return $"{Imię} {Nazwisko}"; }
+        }
+
+        public string Imię {
+            get => imię;
+            set {
+                imię = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Nazwisko {
+            get => nazwisko;
+            set
+            {
+                nazwisko = value;
+                OnPropertyChanged();
+            }
+        }
+    }
     class Model : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -22,19 +62,12 @@ namespace NET_ININ3_PR2_z1
                 PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nazwaPowiązana));
         }
 
-        string imię = "Nemo";
-        public string Imię {
-            get { return imię; }
-            set
-            {
-                imię = value;
-                OnPropertyChanged();
-                //OnPropertyChanged("Format");
-            }
-        }
-        public string Format
+        public Osoba Osoba { get; set; } = new Osoba();
+        public string[] Tab { get; set; } = new string[]
         {
-            get { return $"Podane imię to {Imię}."; }
-        }
+            "a",
+            "b",
+            "c"
+        };
     }
 }
