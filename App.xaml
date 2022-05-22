@@ -12,6 +12,13 @@
             <Setter Property="FontSize" Value="32"/>
             <Setter Property="Margin" Value="5"/>
         </Style>
+        <Style
+            x:Key="Bufory"
+            TargetType="{x:Type TextBlock}"
+            BasedOn="{StaticResource IO}"
+            >
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="2"/>
         </Style>

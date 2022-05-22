@@ -29,6 +29,7 @@ namespace NET_ININ3_PR2_z1
             {
                 buforIO = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IO"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
             }
         }
 
@@ -96,18 +97,17 @@ namespace NET_ININ3_PR2_z1
         {
             BuforDziałania = działanie;
             flagaDziałania = true;
-            LiczbaA = double.Parse(buforIO);
             IO = WykonajDziałanie().ToString();
         }
 
         internal void PodajWynik()
         {
-            if (flagaDziałania == false) {
+            if (flagaDziałania == false) { 
                 LiczbaB = double.Parse(buforIO);
                 flagaDziałania = true;
             }
-            LiczbaA = WykonajDziałanie();
-            IO = LiczbaA.ToString();
+            IO = WykonajDziałanie().ToString();
+            liczbaA = double.Parse(IO);
         }
 
         private double WykonajDziałanie()

@@ -20,8 +20,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="50"/>
-            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -32,7 +32,7 @@
 
         <TextBlock
             Grid.ColumnSpan="4"
-            Style="{DynamicResource IO}"
+            Style="{DynamicResource Bufory}"
             Text="{Binding Bufory}"
             />
         <TextBlock
