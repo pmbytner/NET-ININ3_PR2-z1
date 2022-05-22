@@ -31,31 +31,101 @@ namespace NET_ININ3_PR2_z1
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IO"));
             }
         }
-        
+
+        public double LiczbaA {
+            get => liczbaA;
+            set { 
+                liczbaA = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
+            }
+        }
+        public double LiczbaB {
+            get => liczbaB;
+            set
+            {
+                liczbaB = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
+            }
+        }
+        public string BuforDziałania {
+            get => buforDziałania;
+            set
+            {
+                buforDziałania = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
+            }
+        }
+        public string Bufory { 
+            get {
+                if (buforDziałania == null)
+                    return "";
+                if (flagaDziałania == false)
+                    return $"{liczbaA} {buforDziałania}";
+                return $"{liczbaA} {buforDziałania} {liczbaB}";
+            }
+        }
+
         internal void DziałanieZwykłe(string znak)
         {
-            if(buforDziałania == null)
+            if (flagaDziałania == true)
+                ;
+            else if (BuforDziałania == null)
             {
-                buforDziałania = znak;
-                liczbaA = double.Parse(buforIO);
+                BuforDziałania = znak;
+                LiczbaA = double.Parse(buforIO);
                 flagaDziałania = true;
             }
             else
             {
-                liczbaB = double.Parse(buforIO);
-                liczbaA = WykonajDziałanie(buforDziałania, liczbaA, liczbaB);
+                BuforDziałania = znak;
+                LiczbaB = double.Parse(buforIO);
                 flagaDziałania = true;
-                buforDziałania = znak;
+                LiczbaA = WykonajDziałanie();
+                IO = LiczbaA.ToString();
             }
         }
-        private double WykonajDziałanie(string buforDziałania, double liczbaA, double liczbaB)
+
+        internal void Procent()
         {
-            throw new NotImplementedException();
+            flagaDziałania = true;
+            LiczbaB = double.Parse(buforIO)/100 * liczbaA;
+            PodajWynik();
+        }
+
+        internal void DziałanieJednoargumentowe(string działanie)
+        {
+            BuforDziałania = działanie;
+            flagaDziałania = true;
+            LiczbaA = double.Parse(buforIO);
+            IO = WykonajDziałanie().ToString();
+        }
+
+        internal void PodajWynik()
+        {
+            if (flagaDziałania == false) {
+                LiczbaB = double.Parse(buforIO);
+                flagaDziałania = true;
+            }
+            LiczbaA = WykonajDziałanie();
+            IO = LiczbaA.ToString();
+        }
+
+        private double WykonajDziałanie()
+        {
+            if (BuforDziałania == "+")
+                return LiczbaA + LiczbaB;
+            else if (BuforDziałania == "x²")
+                return LiczbaA * LiczbaA;
+            else
+                return 0;
         }
 
         internal void Resetuj()
         {
             Zeruj();
+            BuforDziałania = default;
+            LiczbaA = default;
+            LiczbaB = default;
         }
         internal void Zeruj() {
             flagaUłamka = false;

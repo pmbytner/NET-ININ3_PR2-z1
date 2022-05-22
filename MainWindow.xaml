@@ -20,6 +20,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -32,135 +33,141 @@
         <TextBlock
             Grid.ColumnSpan="4"
             Style="{DynamicResource IO}"
+            Text="{Binding Bufory}"
+            />
+        <TextBlock
+            Grid.ColumnSpan="4"
+            Grid.Row="1"
+            Style="{DynamicResource IO}"
             Text="{Binding IO}"
             />
 
         <Button
-            Grid.Row="1"
-            Grid.Column="0"
+            Grid.Row="2"
+            Grid.Column="0" Click="DziałanieProcentowe"
             >%</Button>
         <Button
             Style="{StaticResource Ważny}"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="1" Click="Zeruj"
             >CE</Button>
         <Button
             Style="{StaticResource Ważny}"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="2" Click="Resetuj"
             >C</Button>
         <Button
             Style="{StaticResource Ważny}"
-            Grid.Row="1"
+            Grid.Row="2"
             Grid.Column="3" Click="Cofnij"
             >🠔</Button>
         
         <Button
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="0"
             >1/x</Button>
         <Button
-            Grid.Row="2"
-            Grid.Column="1"
+            Grid.Row="3"
+            Grid.Column="1" Click="DziałanieJednoargumentowe"
             >x²</Button>
         <Button
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="2"
             >√</Button>
         <Button
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="3"
             >/</Button>
         
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="0"
             Click="Cyfra"
             >7</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="1"
             Click="Cyfra"
             >8</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="2"
             Click="Cyfra"
             >9</Button>
         <Button
-            Grid.Row="3"
+            Grid.Row="4"
             Grid.Column="3"
             >*</Button>
 
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="0"
             Click="Cyfra"
             >4</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="1"
             Click="Cyfra"
             >5</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="2"
             Click="Cyfra"
             >6</Button>
         <Button
-            Grid.Row="4"
+            Grid.Row="5"
             Grid.Column="3"
             >-</Button>
 
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.Column="0"
             Click="Cyfra"
             >1</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.Column="1"
             Click="Cyfra"
             >2</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="5"
+            Grid.Row="6"
             Grid.Column="2"
             Click="Cyfra"
             >3</Button>
         <Button
-            Grid.Row="5"
-            Grid.Column="3"
+            Grid.Row="6"
+            Grid.Column="3" Click="DziałanieZwykłe"
             >+</Button>
 
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.Column="0" Click="ZmianaZnaku"
             >+/-</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.Column="1"
             Click="Cyfra"
             >0</Button>
         <Button
             Style="{StaticResource Cyfra}"
-            Grid.Row="6"
+            Grid.Row="7"
             Grid.Column="2" Click="Przecinek"
             >,</Button>
         <Button
             Style="{StaticResource Ważny}"
-            Grid.Row="6"
-            Grid.Column="3"
+            Grid.Row="7"
+            Grid.Column="3" Click="PodajWynik"
             >=</Button>
     </Grid>
 </Window>

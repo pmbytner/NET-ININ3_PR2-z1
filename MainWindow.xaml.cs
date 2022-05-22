@@ -58,5 +58,29 @@ namespace NET_ININ3_PR2_z1
         {
             model.Zeruj();
         }
+
+        private void DziałanieZwykłe(object sender, RoutedEventArgs e)
+        {
+            model.DziałanieZwykłe(
+                ((Button)sender).Content.ToString()
+                );
+        }
+
+        private void PodajWynik(object sender, RoutedEventArgs e)
+        {
+            model.PodajWynik();
+        }
+
+        private void DziałanieJednoargumentowe(object sender, RoutedEventArgs e)
+        {
+            model.DziałanieJednoargumentowe(
+                ((Button)sender).Content.ToString()
+                );
+        }
+
+        private void DziałanieProcentowe(object sender, RoutedEventArgs e)
+        {
+            model.Procent();
+        }
     }
 }
