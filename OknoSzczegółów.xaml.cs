@@ -10,28 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NET_ININ3_PR2_z1
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy OknoSzczegółów.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OknoSzczegółów : Window
     {
-        Model model = new Model();
-        public MainWindow()
+        public OknoSzczegółów(Osoba osoba)
         {
+            DataContext = osoba;
             InitializeComponent();
-            DataContext = model;
         }
 
-        private void Szczegóły(object sender, RoutedEventArgs e)
+        private void OK(object sender, RoutedEventArgs e)
         {
-            ListBox lista = (ListBox)this.FindName("ListaOsób");
-            Osoba wybrana = (Osoba)lista.SelectedItem;
-            new OknoSzczegółów(wybrana).Show();
+            this.Close();
         }
     }
 }

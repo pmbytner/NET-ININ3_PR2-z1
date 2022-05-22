@@ -21,16 +21,23 @@
             <RowDefinition/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        
+
         <ListBox
+            Name="ListaOsób"
             Grid.Row="0"
             Grid.ColumnSpan="2"
             ItemsSource="{Binding ListaOsób}"
-            />
+            >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Szczegóły}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <Button
             Grid.Column="0"
-            Grid.Row="1"
+            Grid.Row="1" Click="Szczegóły"
             >
             Szczegóły
         </Button>

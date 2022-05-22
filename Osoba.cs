@@ -8,13 +8,17 @@ using System.Threading.Tasks;
 
 namespace NET_ININ3_PR2_z1
 {
-    class Osoba : INotifyPropertyChanged
+    public class Osoba : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         readonly static Dictionary<string, string[]> powiązaneWłaściwości = new Dictionary<string, string[]>()
         {
             ["Imię"] = new string[] { "ImięNazwisko" },
-            ["Nazwisko"] = new string[] { "ImięNazwisko" }
+            ["Nazwisko"] = new string[] { "ImięNazwisko" },
+            ["DataUrodzenia"] = new string[] { "Wiek" },
+            ["DataŚmierci"] = new string[] { "Wiek" },
+            ["Wiek"] = new string[] { "Szczegóły" },
+            ["ImięNazwisko"] = new string[] { "Szczegóły" },
         };
         public void OnPropertyChanged(
             [CallerMemberName] string właściwość = null,
@@ -43,6 +47,11 @@ namespace NET_ININ3_PR2_z1
             imię,
             nazwisko
             ;
+        DateTime?
+            dataUrodzenia,
+            dataŚmierci
+            ;
+
         public string ImięNazwisko
         {
             get { return $"{Imię} {Nazwisko}"; }
@@ -67,9 +76,42 @@ namespace NET_ININ3_PR2_z1
             }
         }
 
-        public override string ToString()
+        public DateTime? DataUrodzenia {
+            get => dataUrodzenia;
+            set {
+                dataUrodzenia = value;
+                OnPropertyChanged();
+            }
+        }
+        public DateTime? DataŚmierci {
+            get => dataŚmierci;
+            set {
+                dataŚmierci = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Wiek
+        {
+            get
+            {
+                if (dataUrodzenia == null)
+                    return "BD";
+
+                DateTime? koniec;
+                if (dataŚmierci == null)
+                    koniec = DateTime.Now;
+                else
+                    koniec = dataŚmierci;
+
+                TimeSpan czas = (TimeSpan)(koniec - dataUrodzenia);
+                return (czas.Days / 365).ToString();
+            }
+        }
+        public string Szczegóły => $"{ImięNazwisko}, {Wiek} lat(a)";
+
+        /*public override string ToString()
         {
             return ImięNazwisko;
-        }
+        }*/
     }
 }
