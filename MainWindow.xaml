@@ -19,44 +19,26 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         
-        <Label Grid.ColumnSpan="2">Jednowymiarowe dane:</Label>
         <ListBox
-            Grid.Row="1"
-            Grid.RowSpan="3"
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding Tab}"
-            />
-
-        <Label
-            Grid.Row="4"
-            Grid.ColumnSpan="2"
-            >Dwuwymiarowe dane:</Label>
-        <DataGrid
-            Grid.Row="5"
-            Grid.RowSpan="3"
+            Grid.Row="0"
             Grid.ColumnSpan="2"
             ItemsSource="{Binding ListaOsób}"
-            AutoGenerateColumns="False"
+            />
+
+        <Button
+            Grid.Column="0"
+            Grid.Row="1"
             >
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="ID"
-                    Binding="{Binding ID}"
-                    />
-                <DataGridTextColumn
-                    Header="Imię Nazwisko"
-                    Binding="{Binding ImięNazwisko}"
-                    />
-            </DataGrid.Columns>
-        </DataGrid>
+            Szczegóły
+        </Button>
+        <Button
+            Grid.Column="1"
+            Grid.Row="1"
+            >
+            Nowy
+        </Button>
     </Grid>
 </Window>
