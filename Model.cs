@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,7 +11,7 @@ namespace NET_ININ3_PR2_z1
 {
     class Model
     {
-        public LinkedList<Osoba> ListaOsób { get; set; } = new LinkedList<Osoba>(new Osoba[]{
+        public ObservableCollection<Osoba> ListaOsób { get; set; } = new ObservableCollection<Osoba>(new Osoba[]{
             new Osoba(){
                 Imię="Marian",
                 Nazwisko="Sosnowski",
@@ -22,5 +23,12 @@ namespace NET_ININ3_PR2_z1
             new Osoba(){Imię="Anna",Nazwisko="Wiśniewska", DataUrodzenia=DateTime.Parse("3.3.2000")},
             new Osoba(){Imię="Julia",Nazwisko="Jabłońska", DataUrodzenia=DateTime.Parse("4.4.2005")}
         });
+
+        internal Osoba NowaOsoba()
+        {
+            Osoba nowa = new Osoba();
+            ListaOsób.Add(nowa);
+            return nowa;
+        }
     }
 }

@@ -33,5 +33,13 @@ namespace NET_ININ3_PR2_z1
             Osoba wybrana = (Osoba)lista.SelectedItem;
             new OknoSzczegółów(wybrana).Show();
         }
+
+        private void NowyElement(object sender, RoutedEventArgs e)
+        {
+            /*Osoba nowa = model.NowaOsoba();
+            new OknoSzczegółów(nowa).Show();*/
+            
+            new OknoSzczegółów(model.NowaOsoba()).Show();
+        }
     }
 }
