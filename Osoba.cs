@@ -16,11 +16,24 @@ namespace NET_ININ3_PR2_z1
             ["Imię"] = new string[] { "ImięNazwisko" },
             ["Nazwisko"] = new string[] { "ImięNazwisko" }
         };
-        public void OnPropertyChanged([CallerMemberName] string własnaNazwa = null)
+        public void OnPropertyChanged(
+            [CallerMemberName] string właściwość = null,
+            HashSet<string> załatwioneWłaściwości = null
+            )
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(własnaNazwa));
-            foreach (string nazwaPowiązana in powiązaneWłaściwości[własnaNazwa])
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nazwaPowiązana));
+            if (załatwioneWłaściwości == null)
+                załatwioneWłaściwości = new HashSet<string>();
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(właściwość));
+            załatwioneWłaściwości.Add(właściwość);
+
+            if (powiązaneWłaściwości.ContainsKey(właściwość))
+                foreach (string powiązanaWłaściwość in powiązaneWłaściwości[właściwość])
+                    if (!załatwioneWłaściwości.Contains(powiązanaWłaściwość))
+                        OnPropertyChanged(
+                            powiązanaWłaściwość,
+                            załatwioneWłaściwości
+                            );
         }
 
         public static uint następneID = 0;
