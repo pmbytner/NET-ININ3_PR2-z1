@@ -12,33 +12,48 @@
         FontSize="24"
         >
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Label>Produkt:</Label>
         <TextBlock
-            Text="{Binding XPath=opis}"
+            Grid.Column="1"
+            Text="{Binding XPath=nazwa}"
             />
-        <DataGrid
+        
+        <Label
             Grid.Row="1"
-            ItemsSource="{Binding XPath=produkty/produkt}"
-            AutoGenerateColumns="False"
-            >
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Nazwa"
-                    Binding="{Binding XPath=nazwa}"
-                    />
-                <DataGridTextColumn
-                    Header="Cena"
-                    Binding="{Binding XPath=cena}"
-                    />
-                <DataGridTextColumn
-                    Header="Kraj pochodzenia"
-                    Binding="{Binding XPath=kraj_pochodzenia}"
-                    />
-            </DataGrid.Columns>
-        </DataGrid>
+            >Cena:</Label>
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="1"
+            Text="{Binding XPath=cena}"
+            />
+        
+        <Label
+            Grid.Row="2"
+            >Kraj pochodzenia:</Label>
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="2"
+            Text="{Binding XPath=kraj_pochodzenia}"
+            />
+        
+        <Label
+            Grid.Row="3"
+            >Grupa produktu:</Label>
+        <TextBlock
+            Grid.Column="1"
+            Grid.Row="3"
+            Text="{Binding XPath=../../@nazwa}"
+            />
     </Grid>
 </Window>

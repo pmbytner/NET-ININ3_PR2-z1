@@ -22,12 +22,12 @@
             Name="ListaOsób"
             Grid.Row="0"
             DataContext="{DynamicResource Dane}"
-            ItemsSource="{Binding XPath=grupa}"
+            ItemsSource="{Binding XPath=grupa/produkty/produkt}"
             >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock
-                        Text="{Binding XPath=@nazwa}"
+                        Text="{Binding XPath=nazwa}"
                         />
                 </DataTemplate>
             </ListBox.ItemTemplate>
