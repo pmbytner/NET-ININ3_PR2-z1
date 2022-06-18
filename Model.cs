@@ -10,6 +10,11 @@ namespace NET_ININ3_PR2_z1
 {
     class Model : INotifyPropertyChanged
     {
+        readonly Dictionary<string, (string L, string P)> działaniaJednoargumentowe
+            = new Dictionary<string, (string L, string P)>()
+            {
+                ["x²"] = ("", "²")
+            };
         public event PropertyChangedEventHandler PropertyChanged;
 
         double
@@ -39,6 +44,12 @@ namespace NET_ININ3_PR2_z1
                     return "";
                 if (flagaDziałania == false)
                     return $"{LiczbaA} {BuforDziałania}";
+                if (działaniaJednoargumentowe.ContainsKey(BuforDziałania))
+                    return
+                        działaniaJednoargumentowe[BuforDziałania].L +
+                        LiczbaA +
+                        działaniaJednoargumentowe[BuforDziałania].P
+                        ;
                 return $"{LiczbaA} {BuforDziałania} {LiczbaB}";
             }
         }
