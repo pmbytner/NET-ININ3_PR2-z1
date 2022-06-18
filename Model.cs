@@ -29,7 +29,17 @@ namespace NET_ININ3_PR2_z1
             {
                 buforIO = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IO"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
+            }
+        }
+        public string Bufory
+        {
+            get
+            {
+                if (buforDziałania == null)
+                    return "";
+                if (flagaDziałania == false)
+                    return $"{LiczbaA} {BuforDziałania}";
+                return $"{LiczbaA} {BuforDziałania} {LiczbaB}";
             }
         }
 
@@ -37,7 +47,7 @@ namespace NET_ININ3_PR2_z1
             get => liczbaA;
             set { 
                 liczbaA = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
+                //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
             }
         }
         public double LiczbaB {
@@ -56,15 +66,6 @@ namespace NET_ININ3_PR2_z1
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
             }
         }
-        public string Bufory { 
-            get {
-                if (buforDziałania == null)
-                    return "";
-                if (flagaDziałania == false)
-                    return $"{liczbaA} {buforDziałania}";
-                return $"{liczbaA} {buforDziałania} {liczbaB}";
-            }
-        }
 
         internal void DziałanieZwykłe(string znak)
         {
@@ -72,8 +73,8 @@ namespace NET_ININ3_PR2_z1
                 ;
             else if (BuforDziałania == null)
             {
-                BuforDziałania = znak;
                 LiczbaA = double.Parse(buforIO);
+                BuforDziałania = znak;
                 flagaDziałania = true;
             }
             else
@@ -95,6 +96,7 @@ namespace NET_ININ3_PR2_z1
 
         internal void DziałanieJednoargumentowe(string działanie)
         {
+            LiczbaA = double.Parse(buforIO);
             BuforDziałania = działanie;
             flagaDziałania = true;
             IO = WykonajDziałanie().ToString();
@@ -112,12 +114,17 @@ namespace NET_ININ3_PR2_z1
 
         private double WykonajDziałanie()
         {
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bufory"));
+            double wynik;
             if (BuforDziałania == "+")
-                return LiczbaA + LiczbaB;
+                wynik = LiczbaA + LiczbaB;
             else if (BuforDziałania == "x²")
-                return LiczbaA * LiczbaA;
+                wynik = LiczbaA * LiczbaA;
             else
-                return 0;
+                wynik = 0;
+            LiczbaA = wynik;
+            return wynik;
         }
 
         internal void Resetuj()
