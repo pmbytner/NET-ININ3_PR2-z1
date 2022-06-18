@@ -12,66 +12,33 @@
         FontSize="24"
         >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label
-            Grid.ColumnSpan="2"
-            Content="{Binding Szczegóły}"
+        <TextBlock
+            Text="{Binding XPath=opis}"
             />
-
-        <Label
+        <DataGrid
             Grid.Row="1"
-            >Imię</Label>
-        <TextBox
-            Grid.Column="1"
-            Grid.Row="1"
-            Text="{Binding Imię}"
-            />
-
-        <Label
-            Grid.Row="2"
-            >Nazwisko</Label>
-        <TextBox
-            Grid.Column="1"
-            Grid.Row="2"
-            Text="{Binding Nazwisko}"
-            />
-
-        <Label
-            Grid.Row="3"
-            >Data Urodzenia</Label>
-        <DatePicker
-            Grid.Column="1"
-            Grid.Row="3"
-            SelectedDate="{Binding DataUrodzenia}"
-            />
-
-        <Label
-            Grid.Row="4"
-            >Data Śmierci</Label>
-        <DatePicker
-            Grid.Column="1"
-            Grid.Row="4"
-            SelectedDate="{Binding DataŚmierci}"
-            />
-
-        <Button
-            Grid.Column="1"
-            Grid.Row="5" Click="OK"
+            ItemsSource="{Binding XPath=produkty/produkt}"
+            AutoGenerateColumns="False"
             >
-            OK
-        </Button>
-
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Nazwa"
+                    Binding="{Binding XPath=nazwa}"
+                    />
+                <DataGridTextColumn
+                    Header="Cena"
+                    Binding="{Binding XPath=cena}"
+                    />
+                <DataGridTextColumn
+                    Header="Kraj pochodzenia"
+                    Binding="{Binding XPath=kraj_pochodzenia}"
+                    />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

@@ -6,18 +6,10 @@
     StartupUri="MainWindow.xaml"
     >
     <Application.Resources>
-        <Style TargetType="Label">
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-        <Style TargetType="TextBlock" x:Key="Output">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Background" Value="Beige"/>
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="5"/>
-        </Style>
+        <XmlDataProvider
+            x:Key="Dane"
+            Source="dane.xml"
+            XPath="grupy_produktów"
+            />
     </Application.Resources>
 </Application>

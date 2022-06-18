@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grupy_produktów>
+  <grupa nazwa="owoce">
+    <opis>Opis co to są owoce</opis>
+    <produkty>
+      <produkt>
+        <nazwa>Jabłko</nazwa>
+        <cena>3.66</cena>
+        <kraj_pochodzenia>Polska</kraj_pochodzenia>
+      </produkt>
+      <produkt>
+        <nazwa>Gruszka</nazwa>
+        <cena>4.55</cena>
+        <kraj_pochodzenia>Polska</kraj_pochodzenia>
+      </produkt>
+      <produkt>
+        <nazwa>Pomarańcza</nazwa>
+        <cena>7.66</cena>
+        <kraj_pochodzenia>Hiszpania</kraj_pochodzenia>
+      </produkt>
+    </produkty>
+  </grupa>
+  <grupa nazwa="warzywa">
+    <opis>Opis co to są warzywa</opis>
+    <produkty>
+      <produkt>
+        <nazwa>Marchew</nazwa>
+        <cena>3.66</cena>
+        <kraj_pochodzenia>Holandia</kraj_pochodzenia>
+      </produkt>
+      <produkt>
+        <nazwa>Kapusta</nazwa>
+        <cena>4.55</cena>
+        <kraj_pochodzenia>Polska</kraj_pochodzenia>
+      </produkt>
+    </produkty>
+  </grupa>
+</grupy_produktów>

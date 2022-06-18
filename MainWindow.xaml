@@ -13,10 +13,6 @@
     FontSize="24"
     >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="100"/>
@@ -25,27 +21,24 @@
         <ListBox
             Name="ListaOsób"
             Grid.Row="0"
-            Grid.ColumnSpan="2"
-            ItemsSource="{Binding ListaOsób}"
+            DataContext="{DynamicResource Dane}"
+            ItemsSource="{Binding XPath=grupa}"
             >
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Szczegóły}"/>
+                    <TextBlock
+                        Text="{Binding XPath=@nazwa}"
+                        />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <Button
             Grid.Column="0"
-            Grid.Row="1" Click="Szczegóły"
+            Grid.Row="1"
+            Click="Szczegóły"
             >
             Szczegóły
-        </Button>
-        <Button
-            Grid.Column="1"
-            Grid.Row="1" Click="NowyElement"
-            >
-            Nowy
         </Button>
     </Grid>
 </Window>

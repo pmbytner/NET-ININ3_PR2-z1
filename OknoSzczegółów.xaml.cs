@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace NET_ININ3_PR2_z1
 {
@@ -19,15 +20,10 @@ namespace NET_ININ3_PR2_z1
     /// </summary>
     public partial class OknoSzczegółów : Window
     {
-        public OknoSzczegółów(Osoba osoba)
+        public OknoSzczegółów(XmlNode wybrany)
         {
-            DataContext = osoba;
+            DataContext = wybrany;
             InitializeComponent();
-        }
-
-        private void OK(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
